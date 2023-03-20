@@ -1,25 +1,132 @@
-# README
+# Pizza Restaurant API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails API for tracking pizza restaurants. It has the following resources:
 
-Things you may want to cover:
+- Restaurants
+- Pizzas
+- Restaurant Pizzas(a join table for restaurants and pizzas)
 
-* Ruby version
+## Requirements
 
-* System dependencies
+To use this API, you must have:
 
-* Configuration
+- ruby -v 2.7.4
 
-* Database creation
+- rails -v 7.0.4.3
 
-* Database initialization
+-Postgress installed on your machine.
 
-* How to run the test suite
+### Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+To install and use this API, follow these steps:
 
-* Deployment instructions
+1. Clone the repository
 
-* ...
-# phase-4-code-challenge
+   git clone https://https://github.com/ShuaibShaban/phase-4-codechallenge
+
+2. install the dependencies
+
+   cd pizza-shop
+
+   bundle install
+
+3. set up the database:
+
+   rails db:migrate
+
+   rails db:seed
+
+4. Start the server
+
+   rails server
+
+Once the server is up and runnning, you should be able to access the API at `https://localhost:3000`.
+
+### Models
+
+- This API has the following models:
+
+#### Restaurant
+
+- A `Restaurant` has many `pizza`s through `RestaurantPizza`
+
+Attributes:
+
+- `name`:string
+
+- `ingredients`:string
+
+#### RestaurantPizza
+
+A `RestaurantPizza` belongs to a `Restaurant` and belongs to a `pizza`.
+
+Attributes:
+
+- `price`:integer
+
+#### Validations
+
+The `RestaurantPizza` model has a validation for the `price` attribute, which must be between 1 and 30.
+
+#### Routes
+
+- This API has the following routes:
+
+# GET/restaurants
+
+- Returns a list of all restaurants
+
+example response:
+
+[ { "id": 1, "name": "Sottocasa NYC", "address": "298 Atlantic Ave, Brooklyn, NY 11201" }, { "id": 2, "name": "PizzArte", "address": "69 W 55th St, New York, NY 10019" }]
+
+## GET/restaurants/:id
+
+- Returns the details of a restaurant, including the pizzas it serves.
+
+- Example response
+
+{
+"id": 1,
+"name": "Sottocasa NYC",
+"address": "298 Atlantic Ave, Brooklyn, NY 11201",
+"pizzas": [
+{
+"id": 1,
+"name": "Cheese",
+"ingredients": "Dough, Tomato Sauce, Cheese"
+},
+{
+"id": 2,
+"name": "Pepperoni",
+"ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni"
+}
+]
+}
+
+#### DELETE/restaurants/:id
+
+-Deletes a restaurant and all of its associated restaurant pizzas.
+
+- Returns an empty response body.
+
+#### GET/pizzas
+
+-Returns a list of all pizzas.
+
+- Example response:
+
+[ { "id": 1,
+"name": "Cheese",
+"ingredients": "Dough, Tomato Sauce, Cheese" },
+{ "id": 2, "name": "Pepperoni",
+"ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni" }]
+
+#### POST/restaurant_pizzas
+
+- Creates a new restaurant pizza associated with an existing restaurant and pizza.
+
+- Example request body:
+
+{
+"price": 5
