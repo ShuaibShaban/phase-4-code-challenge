@@ -1,7 +1,3 @@
-# Clear existing data
-Restaurant.destroy_all
-Pizza.destroy_all
-# RestaurantPizzas.destroy_all
 
 puts "Seeding in progress"
 
@@ -25,11 +21,6 @@ end
   )
 end
 
-# Create restaurant pizzas
-# RestaurantPizzas.create(restaurant_id: 1, pizza_id: 2)
-# RestaurantPizzas.create(restaurant_id: 1, pizza_id: 4)
-# RestaurantPizzas.create(restaurant_id: 2, pizza_id: 1)
-# RestaurantPizzas.create(restaurant_id: 2, pizza_id: 4)
-# RestaurantPizzas.create(restaurant_id: 3, pizza_id: 1)
+
 
 puts "Done seeding"
