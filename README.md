@@ -72,7 +72,7 @@ The `RestaurantPizza` model has a validation for the `price` attribute, which mu
 
 - This API has the following routes:
 
-# GET/restaurants
+# GET https://pizza-shop-a46u.onrender.com/restaurants
 
 - Returns a list of all restaurants
 
@@ -80,7 +80,7 @@ example response:
 
 [ { "id": 1, "name": "Sottocasa NYC", "address": "298 Atlantic Ave, Brooklyn, NY 11201" }, { "id": 2, "name": "PizzArte", "address": "69 W 55th St, New York, NY 10019" }]
 
-## GET/restaurants/:id
+## GET https://pizza-shop-a46u.onrender.com/restaurants/:id
 
 - Returns the details of a restaurant, including the pizzas it serves.
 
@@ -104,13 +104,13 @@ example response:
 ]
 }
 
-#### DELETE/restaurants/:id
+#### DELETE https://pizza-shop-a46u.onrender.com/restaurants/:id
 
 -Deletes a restaurant and all of its associated restaurant pizzas.
 
 - Returns an empty response body.
 
-#### GET/pizzas
+#### GET https://pizza-shop-a46u.onrender.com/pizzas
 
 -Returns a list of all pizzas.
 
@@ -122,7 +122,7 @@ example response:
 { "id": 2, "name": "Pepperoni",
 "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni" }]
 
-#### POST/restaurant_pizzas
+#### POST https://pizza-shop-a46u.onrender.com/restaurant_pizzas
 
 - Creates a new restaurant pizza associated with an existing restaurant and pizza.
 
